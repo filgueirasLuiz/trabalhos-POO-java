@@ -4,12 +4,15 @@ public class FuncionarioHorista extends Funcionario {
     private double salarioPorHora;
     private double horasTrabalhadas;
 
-    // construtor
-    public FuncionarioHorista(String primeiroNome, String ultimoNome, String numeroPIS, double salarioPorHora, double horasTrabalhadas) {
-
+    public FuncionarioHorista(String primeiroNome, String ultimoNome, String numeroPIS, double salarioPorHora, double horasTrabalhadas) throws HorasExtrasException {
         super(primeiroNome, ultimoNome, numeroPIS);
         this.salarioPorHora = salarioPorHora;
         this.horasTrabalhadas = horasTrabalhadas;
+
+        double horasExtras = horasTrabalhadas > 40 ? horasTrabalhadas - 40 : 0;
+        if (horasExtras > 2) {
+            throw new HorasExtrasException("Mais de 2h extras no dia. Possível problema trabalhista.");
+        }
     }
 
     @Override

@@ -1,6 +1,6 @@
 package funcionarios;
 // não pode ser instanciada diretamente, serve como BASE
-public abstract class Funcionario {
+public abstract class Funcionario implements Payable{
     // variaveis privadas de dentro da classe
     private String primeiroNome;
     private String ultimoNome;
